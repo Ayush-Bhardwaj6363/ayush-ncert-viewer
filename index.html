@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AYUSH-NCERT-VIEWER is a free resource to access NCERT textbooks for Classes 1 to 8." />
+  <meta name="keywords" content="NCERT, textbooks, Class 1 to 8, AYUSH, study material, CBSE" />
+  <meta name="author" content="AYUSH" />
+  <title>AYUSH-NCERT-VIEWER | NCERT Books for Class 1 to 8</title>
+  <link rel="icon" type="image/png" href="https://assets.onecompiler.app/43hy6jsv4/43hysxxut/94d4ac34-277a-4288-bbb4-1bb359588c16.png" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    #resultContent {
+      margin-top: 20px;
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #e67e22;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 15px;
+      color: white;
+      background: #2c3e50;
+      margin-top: 30px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AYUSH-NCERT-VIEWER</h1>
+    <p>Select your class, subject, and chapter to access free NCERT books.</p>
+
+    <label for="classSelect">Choose Class:</label>
+    <select id="classSelect">
+      <option value="">-- Select Class --</option>
+      <option value="1">Class 1</option>
+      <option value="2">Class 2</option>
+      <option value="3">Class 3</option>
+      <option value="4">Class 4</option>
+      <option value="5">Class 5</option>
+      <option value="6">Class 6</option>
+      <option value="7">Class 7</option>
+      <option value="8">Class 8</option>
+    </select>
+
+    <label for="subjectSelect">Choose Subject:</label>
+    <select id="subjectSelect"></select>
+
+    <label for="chapterSelect">Choose Chapter:</label>
+    <select id="chapterSelect"></select>
+
+    <div id="resultContent">
+      <h2>Select options to view textbook links</h2>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2024 AYUSH-NCERT-VIEWER. Learn & Grow with NCERT.
+  </footer>
+
+  <script>
+    const data = {
+      "1": {
+        "English": {
+          "Alphabet & Words": ["https://ncert.nic.in/textbook/pdf/aeen101.pdf"],
+          "Simple Sentences": ["https://ncert.nic.in/textbook/pdf/aeen102.pdf"],
+           "Simple Sentences": ["https://ncert.nic.in/textbook/pdf/aeen102.pdf"],
+            "Simple Sentences": ["https://ncert.nic.in/textbook/pdf/aeen102.pdf"],
+             "Simple Sentences": ["https://ncert.nic.in/textbook/pdf/aeen102.pdf"],
+        },
+        "Mathematics": {
+          "Numbers & Counting": ["https://ncert.nic.in/textbook/pdf/amen101.pdf"]
+        }
+      },
+      "2": {
+        "English": {
+          "Reading Skills": ["https://ncert.nic.in/textbook/pdf/been201.pdf"]
+        },
+        "Mathematics": {
+          "Addition & Subtraction": ["https://ncert.nic.in/textbook/pdf/bmen201.pdf"]
+        }
+      },
+      "3": {
+        "English": {
+          "Good Morning": ["https://ncert.nic.in/textbook/pdf/aeen301.pdf"]
+        },
+        "Mathematics": {
+          "Where to Look From": ["https://ncert.nic.in/textbook/pdf/amen301.pdf"]
+        }
+      },
+      "4": {
+        "English": {
+          "Wake Up!": ["https://ncert.nic.in/textbook/pdf/aeen401.pdf"]
+        },
+        "Mathematics": {
+          "Building with Bricks": ["https://ncert.nic.in/textbook/pdf/amen401.pdf"]
+        }
+      },
+      "5": {
+        "English": {
+          "Ice-cream Man": ["https://ncert.nic.in/textbook/pdf/aeen501.pdf"]
+        },
+        "Mathematics": {
+          "The Fish Tale": ["https://ncert.nic.in/textbook/pdf/amen501.pdf"]
+        }
+      },
+      "6": {
+        "English": {
+          "Who Did Patrick’s Homework?": ["https://ncert.nic.in/textbook/pdf/hien101.pdf"]
+        },
+        "Mathematics": {
+          "Knowing Our Numbers": ["https://ncert.nic.in/textbook/pdf/hymh101.pdf"]
+        }
+      },
+      "7": {
+        "English": {
+          "Three Questions": ["https://ncert.nic.in/textbook/pdf/hien201.pdf"]
+        },
+        "Mathematics": {
+          "Integers": ["https://ncert.nic.in/textbook/pdf/hymh201.pdf"]
+        }
+      },
+      "8": {
+        "English": {
+          "The Best Christmas Present in the World": ["https://ncert.nic.in/textbook/pdf/hien301.pdf"]
+        },
+        "Mathematics": {
+          "Rational Numbers": ["https://ncert.nic.in/textbook/pdf/hymh301.pdf"]
+        }
+      }
+    };
+
+    const classSelect = document.getElementById("classSelect");
+    const subjectSelect = document.getElementById("subjectSelect");
+    const chapterSelect = document.getElementById("chapterSelect");
+    const resultContent = document.getElementById("resultContent");
+
+    function resetDropdown(selectElement) {
+      selectElement.innerHTML = "<option value=''>-- Select --</option>";
+    }
+
+    classSelect.addEventListener("change", () => {
+      const classVal = classSelect.value;
+      resetDropdown(subjectSelect);
+      resetDropdown(chapterSelect);
+      resultContent.innerHTML = "<h2>Select options to view textbook links</h2>";
+
+      if (data[classVal]) {
+        for (let subject in data[classVal]) {
+          subjectSelect.innerHTML += <option value="${subject}">${subject}</option>;
+        }
+      }
+    });
+
+    subjectSelect.addEventListener("change", () => {
+      const classVal = classSelect.value;
+      const subjectVal = subjectSelect.value;
+      resetDropdown(chapterSelect);
+      resultContent.innerHTML = "<h2>Select options to view textbook links</h2>";
+
+      if (data[classVal] && data[classVal][subjectVal]) {
+        for (let chapter in data[classVal][subjectVal]) {
+          chapterSelect.innerHTML += <option value="${chapter}">${chapter}</option>;
+        }
+      }
+    });
+
+    chapterSelect.addEventListener("change", () => {
+      const classVal = classSelect.value;
+      const subjectVal = subjectSelect.value;
+      const chapterVal = chapterSelect.value;
+      const links = data[classVal]?.[subjectVal]?.[chapterVal];
+
+      if (links && links.length > 0) {
+        resultContent.innerHTML = <h2>${chapterVal}</h2><ul> +
+          links.map(link => <li><a href="${link}" target="_blank">View Textbook</a></li>).join("") +
+          </ul>;
+      }
+    });
+  </script>
+</body>
+</html>
